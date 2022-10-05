@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Arrays</title>
+    <title>Spread operator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
@@ -20,7 +20,35 @@ const values = [...map.values()]
 console.log(values)
 const entries = ["apple", "banana", "grape", "banana"]
 console.log([...new Set(entries)])
+const errorMessageNodes = [...document.getElementsByClassName("error")]
+console.log(errorMessageNodes)
 </code>
+
+concatenate arrays
+<code class="language-javascript">
+    const lat = ["N", "S"]
+    const long = ["E", "W"]
+    const directions = [...lat, ...long]
+    console.log(directions)
+    // -> [ 'N', 'S', 'E', 'W' ]
+</code>
+
+copy arrays
+<code class="language-javascript">
+   const source = [{"number" : 1}, {"number" : 2}, {"number" : 3}]
+    const copy = [...source]
+    console.log(copy)
+    // -> [ 1, 2, 3 ]
+
+    source[0].number += 1 // also changes entry of copy
+    console.log(copy)
+
+    source[0] = undefined // but changing one array doesn't change the other
+    console.log(source)
+    console.log(copy)
+</code>
+
+
 </pre>
 
 <div id="displayOnSuccess">
