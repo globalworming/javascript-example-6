@@ -62,17 +62,3 @@ const RunTest = {
         }, 1000)
     }
 }
-
-const source = [{"number" : 1}, {"number" : 2}, {"number" : 3}]
-const copy = [...source]
-console.log(copy)
-// -> [ 1, 2, 3 ]
-
-source[0].number += 1 // also changes entry of copy
-console.log(copy)
-
-source[0] = undefined // but changing one array doesn't change the other
-console.log(source)
-console.log(copy)
-
-

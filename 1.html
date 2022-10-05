@@ -18,10 +18,17 @@ const keys = [...map.keys()]
 console.log(keys)
 const values = [...map.values()]
 console.log(values)
+
+// list of unique entries by using new Set()
 const entries = ["apple", "banana", "grape", "banana"]
 console.log([...new Set(entries)])
+
+// array of DOM elements
 const errorMessageNodes = [...document.getElementsByClassName("error")]
 console.log(errorMessageNodes)
+
+// characters in a string
+console.log([..."hello"])
 </code>
 
 concatenate arrays
