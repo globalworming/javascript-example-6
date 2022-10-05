@@ -37,6 +37,23 @@ const findHeroByPowerLevel = (powerLevel, ...more) => {
 }
 findHeroByPowerLevel(3, "ASAP", {power: "flight"}) // searching {"powerLevel":3,"more":["ASAP",{"power":"flight"}]}
 </code>
+especially useful with the 'spread operator', that turns individual array entries to function arguments.
+<code class="language-javascript">
+const findHeroByPowerLevelAndPowers = (powerLevel, ...powers) => {
+    console.log("searching " + JSON.stringify({powerLevel, powers}) + " ")
+}
+const requiredPowers = ["flight", "lightning"]
+findHeroByPowerLevelAndPowers(3, ...requiredPowers, "additional power");
+// searching {"powerLevel":3,"powers":["flight","lightning","additional power"]}
+</code>
+e.g. to concatenate arrays
+<code class="language-javascript">
+const lat = ["N", "S"]
+const long = ["E", "W"]
+const directions = [...lat, ...long]
+console.log(directions)
+// -> [ 'N', 'S', 'E', 'W' ]
+</code>
 </pre>
 
 <h3>Your Task:</h3>
@@ -51,9 +68,11 @@ findHeroByPowerLevel(3, "ASAP", {power: "flight"}) // searching {"powerLevel":3,
    const runScript = () => {
        addGuest()
        addGuest("Zoe", "fish", "nuts")
+       // FIXME need to pass name argument
        addGuest("fish", "nuts")
    };
 
+   // FIXME set default name
    function addGuest(name, ...allergies) {
        const showsGuest = document.createElement("li")
        showsGuest.className = "guest"
@@ -70,7 +89,7 @@ findHeroByPowerLevel(3, "ASAP", {power: "flight"}) // searching {"powerLevel":3,
 <script src="test.js"></script>
 
 <div id="displayOnSuccess" hidden="hidden">
-    <a href="./todo">FIXME next classroom</a>
+    <a href="./1.html">FIXME next classroom</a>
 </div>
 
 <!-- fancy code highlighting -->

@@ -5,7 +5,7 @@ const RunTest = {
                 let guests = [...document.getElementsByClassName("guest")]
                 let textContent = guests.map(it => it.textContent).join(" ");
                 if (textContent.includes("undefined")) {
-                    document.getElementsByClassName("error")[0].textContent = `test failed,  'anonymous' should be the default name`
+                    document.getElementsByClassName("error")[0].textContent = `test failed, 'anonymous' should be the default name`
                     return
                 }
                 if (!textContent.includes("Name: anonymous")) {
