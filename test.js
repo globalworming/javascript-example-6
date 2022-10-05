@@ -2,18 +2,18 @@ const RunTest = {
     test1() {
         setTimeout(() => {
             try {
-                let foods = document.getElementsByClassName("foods")[0]
-                let textContent = foods.textContent;
+                let guests = [...document.getElementsByClassName("guest")]
+                let textContent = guests.map(it => it.textContent).join(" ");
                 if (textContent.includes("undefined")) {
-                    document.getElementsByClassName("error")[0].textContent = `test failed, expected no 'undefined' food`
+                    document.getElementsByClassName("error")[0].textContent = `test failed,  'anonymous' should be the default name`
                     return
                 }
-                if (!textContent.includes("apple")) {
-                    document.getElementsByClassName("error")[0].textContent = `test failed, expected at least one 'apple'`
+                if (!textContent.includes("Name: anonymous")) {
+                    document.getElementsByClassName("error")[0].textContent = `test failed, expected at least one 'Name: anonymous'`
                     return
                 }
-                if (!textContent.includes("banana")) {
-                    document.getElementsByClassName("error")[0].textContent = `test failed, expected at least one 'banana' food`
+                if (textContent.includes("Name: fish,")) {
+                    document.getElementsByClassName("error")[0].textContent = `unexpected 'Name: fish', please pass a name`
                     return
                 }
                 document.getElementById("displayOnSuccess").hidden = false
