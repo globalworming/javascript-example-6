@@ -30,7 +30,7 @@ const findHeroByPowerLevel = (powerLevel = 1) => {
 findHeroByPowerLevel(3) // searching {"powerLevel":3}
 findHeroByPowerLevel() // searching {"powerLevel":1}
 </code>
-catch additional arguments
+catch additional arguments with the "rest parameter"
 <code class="language-javascript">
 const findHeroByPowerLevel = (powerLevel, ...more) => {
     console.log("searching " + JSON.stringify({powerLevel, more}) + " ")

@@ -9,71 +9,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
 </head>
 <body onload="runScript(); RunTest.test2()">
-<h1>Maps vs Objects</h1>
-some prefer the Map API (get, set, has, delete) to dealing with object properties. One big disadvantage though: Maps are harder to print as and parse from JSON.
+<h1>spread operator</h1>
+spreads any iterables, so converting iterables to arrays is easy
 <pre>
 <code class="language-javascript">
-// parsing objects, no problem
-const atom = JSON.parse('{"name": "atom"}');
-const antimatter = {"name": "antimatter", evil: true };
-
-const heroesToArchEnemy = new Map([[atom, antimatter]]);
-// Map to JSON prints empty object
-JSON.stringify(heroesToArchEnemy) // -> {}
-JSON.parse('{{"name": "atom"}: {"name": "antimatter"}}'); // invalid JSON
+const map = new Map([["thunder", "lightning"],["fire","ice"]]);
+const keys = [...map.keys()]
+console.log(keys)
+const values = [...map.values()]
+console.log(values)
+const entries = ["apple", "banana", "grape", "banana"]
+console.log([...new Set(entries)])
 </code>
 </pre>
-there are workarounds, check stackoverflow :)
 
-<h3>Your Task:</h3>
-<span>edit the script block of this file to add an entry to the map:</span><br>
-<h2>Global Evil Organisation Database:</h2>
-<div class="powers"></div>
-<pre class="error"></pre>
-
-<script type="application/javascript">
-
-    const runScript = () => {
-        // persons
-        const atom = {"name": "atom"};
-        const thunder = {"name": "thunder"};
-        const antimatter = {"name": "antimatter" };
-        const lightning = {"name": "lightning" };
-
-        // organisations
-        const gdi = {"orgName": "GDI"}
-        const nod = {"orgName": "NOD"}
-        const fid = {"orgName": "FID"}
-
-        // mapping
-        const organisationToMembers = new Map([
-            [gdi, [atom, lightning]]
-        ])
-        organisationToMembers.set(fid, [antimatter, lightning])
-
-        // print
-        renderOrganisations(organisationToMembers);
-    };
-
-    function renderOrganisations(organisationToMembers) {
-        for (const entry of organisationToMembers.entries()) {
-            let organisation = entry[0];
-            let members = entry[1];
-            const showsOrganisation = document.createElement("p")
-            showsOrganisation.className = "organisation organisation-" + organisation.orgName
-            showsOrganisation.textContent = organisation.orgName + ": " + members.map(it => it.name).join(", ")
-            document.getElementsByClassName("powers")[0].append(showsOrganisation)
-        }
-        const showsNumberOfUniquePersons = document.createElement("b")
-        let uniquePersons = new Set([...organisationToMembers.values()].flat());
-        showsNumberOfUniquePersons.textContent = "members (" + uniquePersons.size + "): " + [...uniquePersons].map(it => it.name).sort().join(", ")
-        document.getElementsByClassName("powers")[0].append(showsNumberOfUniquePersons)
-    }
-</script>
-<script src="test.js"></script>
-
-<div id="displayOnSuccess" hidden="hidden">
-    <a href="./2.html">next exercise</a>
+<div id="displayOnSuccess">
+    <a href="./fixme">FIXME next classroom</a>
 </div>
 
 <!-- fancy code highlighting -->
